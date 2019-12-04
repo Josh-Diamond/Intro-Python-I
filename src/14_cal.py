@@ -22,3 +22,25 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+def viewCalendar(month, year):
+  if 1 <= month and month <=  12:
+    calendar.TextCalendar().prmonth(theyear = year, themonth = month)
+  else:
+    sys.exit("Enter numeric value for month")
+
+month = datetime.today().month
+year = datetime.today().year
+
+if len(sys.argv) == 1:
+ viewCalendar(month, year)
+elif len(sys.argv) == 2:
+  month = int(sys.argv[1])
+  viewCalendar(month, year)
+elif len(sys.argv) == 3:
+  month = int(sys.argv[1])
+  year = int(sys.argv[2])
+  viewCalendar(month, year)
+else:
+  sys.exit("Must enter two arguments: 1) MM and 2) YYYY format")
+
