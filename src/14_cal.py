@@ -37,5 +37,5 @@ elif month == "" or year == "":
 elif len(month) == 2 and len(year) == 4:
     print(calendar.month(int(year), int(month)))
 else:
-    print("Please enter with format MM and YYYY and use numbers!")
+    print("Please enter with format MM and YYYY and use numbers only")
     exit()
