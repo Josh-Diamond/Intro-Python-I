@@ -23,24 +23,19 @@ import sys
 import calendar
 from datetime import datetime
 
-def viewCalendar(month, year):
-  if 1 <= month and month <=  12:
-    calendar.TextCalendar().prmonth(theyear = year, themonth = month)
-  else:
-    sys.exit("Enter numeric value for month")
+month = (input("Enter Month"))
+year = (input("Enter Year"))
 
-month = datetime.today().month
-year = datetime.today().year
 
-if len(sys.argv) == 1:
- viewCalendar(month, year)
-elif len(sys.argv) == 2:
-  month = int(sys.argv[1])
-  viewCalendar(month, year)
-elif len(sys.argv) == 3:
-  month = int(sys.argv[1])
-  year = int(sys.argv[2])
-  viewCalendar(month, year)
+if month == "" and year == "":
+    print(calendar.month(datetime.now().year, datetime.now().month))
+elif month == "" or year == "":
+    if month != "":
+        print(calendar.month(datetime.now().year, int(month)))
+    elif year != "":
+        print(calendar.month(int(year), datetime.now().month))
+elif len(month) == 2 and len(year) == 4:
+    print(calendar.month(int(year), int(month)))
 else:
-  sys.exit("Must enter two arguments: 1) MM and 2) YYYY format")
-
+    print("Please enter with format MM and YYYY and use numbers!")
+    exit()
